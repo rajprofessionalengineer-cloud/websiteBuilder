@@ -17,9 +17,12 @@ const port=process.env.PORT || 5000
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin:"https://websitebuilder-1-cw02.onrender.com",
+    origin: [
+        "http://localhost:5173",
+        "https://websitebuilder-1-cw02.onrender.com"
+    ],
     credentials: true
-}))
+}));
 app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
 app.use("/api/website",websiteRouter)
