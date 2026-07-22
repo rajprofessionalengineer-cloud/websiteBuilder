@@ -27,6 +27,12 @@ app.use("/api/auth",authRouter)
 app.use("/api/user",userRouter)
 app.use("/api/website",websiteRouter)
 app.use("/api/billing",billingRouter)
+app.get("/", (req, res) => {
+    res.json({
+        message: "Backend is running",
+        origin: process.env.FRONTEND_URL
+    });
+});
 
 app.listen(port,()=>{
     console.log("server started")
